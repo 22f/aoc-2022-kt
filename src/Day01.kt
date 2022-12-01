@@ -1,17 +1,18 @@
+const val day_1_demo_1 = "Day1_demo.txt"
+
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
+    val valuesf: (fileName: String) -> List<Int> = { fileName ->
+        readInputAsString(fileName)
+            .split("\n\n")
+            .map { it.split("\n").sumOf { it.toInt() } }
+            .sortedDescending()
     }
 
-    fun part2(input: List<String>): Int {
-        return input.size
-    }
+    val values = valuesf(day_1_demo_1)
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
+    val part1result = values[0]
+    check(part1result == 24000)
 
-    val input = readInput("Day01")
-    println(part1(input))
-    println(part2(input))
+    val part2result = values.take(3).sum()
+    check(part2result == 45000)
 }
