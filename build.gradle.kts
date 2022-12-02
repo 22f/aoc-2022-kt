@@ -1,5 +1,7 @@
 plugins {
     kotlin("jvm") version "1.7.22"
+    id("me.champeau.jmh") version "0.6.8"
+
 }
 
 repositories {
@@ -9,7 +11,7 @@ repositories {
 tasks {
     sourceSets {
         main {
-            java.srcDirs("src")
+            java.srcDirs("src/main")
         }
     }
 
